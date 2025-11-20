@@ -10,8 +10,36 @@ in
       home-manager
       gnumake
 
+      # utilities
+      bat
+      eza
+      fd
+      lazygit
+      ripgrep
+
       zip
       unzip
+
+      #languages
+      nodejs_24
+      rustup
+
+      # rust stuff
+      cargo-cache
+      cargo-expand
+
+      # debuggers
+      gdb
+
+      # lsps
+      lua-language-server
+      clang-tools
+      pyright
+      ruff
+      vscode-extensions.vadimcn.vscode-lldb
+
+      # formatters
+      nixfmt-rfc-style
     ];
 
     username = "${username}";
@@ -21,9 +49,13 @@ in
 
     stateVersion = "25.11";
   };
+
+  xdg.configFile."nvim/" = {
+    source = ./nvim;
+    recursive = true;
+  };
   
   programs = {
-    eza.enable = true;
     fzf.enable = true;
     fzf.enableFishIntegration = true;
     zoxide.enable = true;
@@ -32,9 +64,9 @@ in
 
     # languages
     gcc.enable = true;
+    uv.enable = true;
 
     neovim.enable = true;
-    neovim.package = pkgs.neovim-unwrapped;
 
     starship.enable = true;
     starship.settings = {
