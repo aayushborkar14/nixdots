@@ -86,6 +86,21 @@ in
       character.vimcmd_symbol = "[❮](subtext1)";
     };
 
+    git = {
+      enable = true;
+      settings = {
+        init.defaultBranch = "main";
+        user.name = "Aayush Borkar";
+        user.email = "aayushb14@gmail.com";
+        core.editor = "nvim";
+        url = {
+          "https://oauth2:${secrets.github_token}@github.com" = {
+            insteadOf = "https://github.com";
+          };
+        };
+      };
+    };
+
     fish = {
       enable = true;
       interactiveShellInit = ''
@@ -143,6 +158,10 @@ in
         {
           inherit (pkgs.fishPlugins.sponge) src;
           name = "sponge";
+        }
+        {
+          inherit (pkgs.fishPlugins.foreign-env) src;
+          name = "foreign-env";
         }
       ];
     };
