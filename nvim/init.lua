@@ -31,6 +31,10 @@ vim.opt.clipboard:append("unnamedplus")
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- Visual Shifting without exiting visual mode
+keymap.set("v", "<", "<gv", opts)
+keymap.set("v", ">", ">gv", opts)
+
 -- Save file
 keymap.set('n', '<C-s>', '<cmd>w<CR>', opts)
 keymap.set('i', '<C-s>', '<Esc><cmd>w<CR>', opts)
