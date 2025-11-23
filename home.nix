@@ -37,6 +37,7 @@ in
       pyright
       ruff
       vscode-extensions.vadimcn.vscode-lldb
+      nixd
 
       # formatters
       nixfmt-rfc-style
@@ -54,7 +55,7 @@ in
     source = ./nvim;
     recursive = true;
   };
-  
+
   programs = {
     fzf.enable = true;
     fzf.enableFishIntegration = true;
@@ -301,17 +302,16 @@ in
           end
         '';
       };
-      shellAbbrs =
-        {
-          gc = "nix-collect-garbage --delete-old";
-        }
-        # navigation shortcuts
-        // {
-          ".." = "cd ..";
-          "..." = "cd ../../";
-          "...." = "cd ../../../";
-          "....." = "cd ../../../../";
-        };
+      shellAbbrs = {
+        gc = "nix-collect-garbage --delete-old";
+      }
+      # navigation shortcuts
+      // {
+        ".." = "cd ..";
+        "..." = "cd ../../";
+        "...." = "cd ../../../";
+        "....." = "cd ../../../../";
+      };
       shellAliases = {
         v = "nvim";
         x = "clear";
@@ -346,5 +346,4 @@ in
       ];
     };
   };
-
 }
