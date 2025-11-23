@@ -91,7 +91,7 @@ in
         "$conda"
         "$python"
         "$time"
-        "$line_break "
+        "$line_break  "
         "[❯](fg:iris) "
       ];
       palette = "rose-pine";
