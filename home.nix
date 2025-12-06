@@ -20,6 +20,8 @@ in
       zip
       unzip
 
+      git-filter-repo
+
       #languages
       nodejs_24
       rustup
