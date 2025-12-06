@@ -1,7 +1,8 @@
 { lib, pkgs, ... }:
 let
   username = "aayush";
-  secrets = builtins.fromJSON (builtins.readFile ./secrets.json);
+  secretFile = "${builtins.getEnv "HOME"}/homemanager/secrets.json";
+  secrets = builtins.fromJSON (builtins.readFile secretFile);
 in
 {
   home = {
