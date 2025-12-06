@@ -37,7 +37,7 @@ require("dap").adapters["codelldb"] = {
   host = "localhost",
   port = "${port}",
   executable = {
-    command = "codelldb",
+    command = "~/.nix-profile/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb",
     args = {
       "--port",
       "${port}",

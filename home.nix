@@ -36,11 +36,17 @@ in
       clang-tools
       pyright
       ruff
-      vscode-extensions.vadimcn.vscode-lldb
       nixd
+
+      # daps
+      vscode-extensions.vadimcn.vscode-lldb
 
       # formatters
       nixfmt-rfc-style
+
+      # C++ Libraries
+      glew
+      libGL
     ];
 
     username = "${username}";
@@ -51,10 +57,11 @@ in
     stateVersion = "25.11";
   };
 
-  xdg.configFile."nvim/" = {
-    source = ./nvim;
+  xdg.configFile."nvim/lua" = {
+    source = ./nvim/lua;
     recursive = true;
   };
+  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
 
   programs = {
     fzf.enable = true;
