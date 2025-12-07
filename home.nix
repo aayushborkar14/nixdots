@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 let
   username = "aayush";
   secretFile = "${builtins.getEnv "HOME"}/homemanager/secrets.json";
@@ -17,12 +22,14 @@ in
       fd
       lazygit
       ripgrep
+      btop
 
       zip
       unzip
 
       trashy
-
+      pwninit
+      patchelf
       git-filter-repo
 
       #languages
@@ -35,6 +42,7 @@ in
 
       # debuggers
       gdb
+      inputs.pwndbg.packages.${system}.default
 
       # lsps
       lua-language-server
@@ -70,6 +78,7 @@ in
 
   # clangd configuration
   home.file.".clang-format".source = ./.clang-format;
+  xdg.configFile."clangd/config.yaml".source = ./clangd/config.yaml;
 
   programs = {
     fzf.enable = true;

@@ -5,6 +5,8 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    pwndbg.url = "github:pwndbg/pwndbg";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +19,7 @@
       home-manager,
       neovim-nightly-overlay,
       ...
-    }:
+    }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -32,6 +34,9 @@
         bumblebee = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
+          extraSpecialArgs = {
+            inherit inputs;
+          };
         };
       };
     };
