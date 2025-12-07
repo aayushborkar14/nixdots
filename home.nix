@@ -68,6 +68,9 @@ in
   };
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
 
+  # clangd configuration
+  home.file.".clang-format".source = ./.clang-format;
+
   programs = {
     fzf.enable = true;
     fzf.enableFishIntegration = true;
