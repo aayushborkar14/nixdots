@@ -21,6 +21,8 @@ in
       zip
       unzip
 
+      trashy
+
       git-filter-repo
 
       #languages
@@ -339,6 +341,8 @@ in
         lg = "eza --group --header --group-directories-first --long --git --git-ignore";
         le = "eza --group --header --group-directories-first --long --extended";
         lt = "eza --group --header --group-directories-first --tree --level LEVEL";
+
+        rm = "trash";
       };
       plugins = [
         {
